@@ -33,99 +33,97 @@ import {
 	sineInOut,
 } from "svelte/easing";
 
-const transitions = [
-	{ name: "fly", transition: fly },
-	{ name: "blur", transition: blur },
-	{ name: "fade", transition: fade },
-	{ name: "slide", transition: slide },
-	{ name: "scale", transition: scale },
-	{ name: "draw", transition: draw },
-	{ name: "crossfade", transition: crossfade },
+export const transitions = [
+	{ name: "fly", function: fly },
+	{ name: "blur", function: blur },
+	{ name: "fade", function: fade },
+	{ name: "slide", function: slide },
+	{ name: "scale", function: scale },
+	{ name: "draw", function: draw },
+	{ name: "crossfade", function: crossfade },
 ] as const;
 
 // https://svelte.dev/examples/easing
-const easings = [
-	{ name: "linear", easing: linear },
+export const easings = [
+	{ name: "linear", function: linear },
 	{
 		name: "back",
-		easings: [
-			{ name: "in", easing: backIn },
-			{ name: "out", easing: backOut },
-			{ name: "inOut", easing: backInOut },
+		variants: [
+			{ name: "backIn", function: backIn },
+			{ name: "backOut", function: backOut },
+			{ name: "backInOut", function: backInOut },
 		],
 	},
 	{
 		name: "bounce",
-		easings: [
-			{ name: "in", easing: bounceIn },
-			{ name: "out", easing: bounceOut },
-			{ name: "inOut", easing: bounceInOut },
+		variants: [
+			{ name: "bounceIn", function: bounceIn },
+			{ name: "bounceOut", function: bounceOut },
+			{ name: "bounceInOut", function: bounceInOut },
 		],
 	},
 	{
 		name: "circ",
-		easings: [
-			{ name: "in", easing: circIn },
-			{ name: "out", easing: circOut },
-			{ name: "inOut", easing: circInOut },
+		variants: [
+			{ name: "circIn", function: circIn },
+			{ name: "circOut", function: circOut },
+			{ name: "circInOut", function: circInOut },
 		],
 	},
 	{
 		name: "cubic",
-		easings: [
-			{ name: "in", easing: cubicIn },
-			{ name: "out", easing: cubicOut },
-			{ name: "inOut", easing: cubicInOut },
+		variants: [
+			{ name: "cubicIn", function: cubicIn },
+			{ name: "cubicOut", function: cubicOut },
+			{ name: "cubicInOut", function: cubicInOut },
 		],
 	},
 	{
 		name: "elastic",
-		easings: [
-			{ name: "in", easing: elasticIn },
-			{ name: "out", easing: elasticOut },
-			{ name: "inOut", easing: elasticInOut },
+		variants: [
+			{ name: "elasticIn", function: elasticIn },
+			{ name: "elasticOut", function: elasticOut },
+			{ name: "elasticInOut", function: elasticInOut },
 		],
 	},
 	{
 		name: "expo",
-		easings: [
-			{ name: "in", easing: expoIn },
-			{ name: "out", easing: expoOut },
-			{ name: "inOut", easing: expoInOut },
+		variants: [
+			{ name: "expoIn", function: expoIn },
+			{ name: "expoOut", function: expoOut },
+			{ name: "expoInOut", function: expoInOut },
 		],
 	},
 	{
 		name: "quad",
-		easings: [
-			{ name: "in", easing: quadIn },
-			{ name: "out", easing: quadOut },
-			{ name: "inOut", easing: quadInOut },
+		variants: [
+			{ name: "quadIn", function: quadIn },
+			{ name: "quadOut", function: quadOut },
+			{ name: "quadInOut", function: quadInOut },
 		],
 	},
 	{
 		name: "quart",
-		easings: [
-			{ name: "in", easing: quartIn },
-			{ name: "out", easing: quartOut },
-			{ name: "inOut", easing: quartInOut },
+		variants: [
+			{ name: "quartIn", function: quartIn },
+			{ name: "quartOut", function: quartOut },
+			{ name: "quartInOut", function: quartInOut },
 		],
 	},
 	{
 		name: "quint",
-		easings: [
-			{ name: "in", easing: quintIn },
-			{ name: "out", easing: quintOut },
-			{ name: "inOut", easing: quintInOut },
+		variants: [
+			{ name: "quintIn", function: quintIn },
+			{ name: "quintOut", function: quintOut },
+			{ name: "quintInOut", function: quintInOut },
 		],
 	},
 	{
 		name: "sine",
-		easings: [
-			{ name: "in", easing: sineIn },
-			{ name: "out", easing: sineOut },
-			{ name: "inOut", easing: sineInOut },
+		variants: [
+			{ name: "sineIn", function: sineIn },
+			{ name: "sineOut", function: sineOut },
+			{ name: "sineInOut", function: sineInOut },
 		],
 	},
 ] as const;
-
-export { transitions, easings };
