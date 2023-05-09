@@ -1,14 +1,6 @@
 <script lang="ts">
 	import { CodeBlock } from "@skeletonlabs/skeleton";
-	import {
-		type BlurParams,
-		type SlideParams,
-		type ScaleParams,
-		type DrawParams,
-		type CrossfadeParams,
-		type FlyParams,
-		fade,
-	} from "svelte/transition";
+	import type { BlurParams, SlideParams, ScaleParams, FlyParams } from "svelte/transition";
 
 	export let transition:
 		| {
@@ -34,14 +26,6 @@
 		| {
 				name: "scale";
 				params: ScaleParams;
-		  }
-		| {
-				name: "draw";
-				params: DrawParams;
-		  }
-		| {
-				name: "crossfade";
-				params: CrossfadeParams;
 		  };
 
 	function formatEasingParam(easing: string | undefined) {
@@ -70,10 +54,6 @@
 				return `${key}: ${value}`;
 			})
 			.filter((param) => param !== "");
-	}
-
-	$: {
-		console.log(formatParams(transition.params));
 	}
 
 	$: transitionImport = `import { ${transition.name} } from "svelte/transition";`;
